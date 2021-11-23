@@ -1,5 +1,7 @@
 package project5;
 
+import ADTPackage.*;
+
 public class MatrixGraph<T> implements GraphInterface<T>
 {
    private boolean[][] edges; // edges[i][j] is true if there is a vertex from i to j
@@ -10,6 +12,14 @@ public class MatrixGraph<T> implements GraphInterface<T>
       edges = new boolean[n][n]; // All values initially false
       labels = (T[]) new Object[n]; // All values initially null
    } // end constructor
+
+   public QueueInterface<T> getDepthFirstTraversal (T origin)
+   {
+      QueueInterface<T> traversalOrder = new LinkedQueue<T>();
+      StackInterface<T> vertexStack = new LinkedStack<>();
+      
+      return traversalOrder;
+   }
 
    // Accessor method to get the label of a vertex of this Graph
    public T getLabel(int vertex)
