@@ -20,6 +20,11 @@ public class MatrixGraph<T> implements GraphInterface<T>
 
    public QueueInterface<T> getDepthFirstTraversal (int origin)
    {
+      if(origin >= labels.length)
+      {
+         throw new IllegalStateException("Attempted to traverse a graph using a starting point "
+                                         + "greater than the graph's size of " + labels.length);
+      }
       QueueInterface<T> traversalOrder = new LinkedQueue<T>();
       StackInterface<Integer> vertexStack = new LinkedStack<>();
       BagInterface<Integer> visitedVertexes = new LinkedBag<>();
