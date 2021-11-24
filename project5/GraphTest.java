@@ -8,7 +8,7 @@ public class GraphTest
    {
       GraphInterface<String> graph1 = createGraph1();
       QueueInterface<String> DFT = graph1.getDepthFirstTraversal(0);
-      System.out.println(readQueue(DFT));
+      System.out.println("Depth-first traversal: " + readQueue(DFT));
    }
 
    public static GraphInterface<String> createGraph1()
@@ -32,12 +32,12 @@ public class GraphTest
       return newGraph;
    }
 
-   public static String readQueue(QueueInterface queue)
+   public static <T> String readQueue(QueueInterface<T> queue)
    {
       String result = "";
       while(!queue.isEmpty())
       {
-         result += queue.dequeue().toString();
+         result += queue.dequeue().toString() + " ";
       }
       return result;
    }
