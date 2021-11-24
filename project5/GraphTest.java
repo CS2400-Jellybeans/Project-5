@@ -1,11 +1,16 @@
 package project5;
 
+import ADTPackage.QueueInterface;
+
 public class GraphTest
 {
    public static void main(String[] args)
    {
       GraphInterface<String> graph1 = createGraph1();
+      QueueInterface<String> DFT = graph1.getDepthFirstTraversal(0);
+      System.out.println(readQueue(DFT));
    }
+
    public static GraphInterface<String> createGraph1()
    {
       String[] labels = new String[]{"A", "B", "C",
@@ -25,5 +30,15 @@ public class GraphTest
          newGraph.addEdge(edges[i], edges[i + 1]);
       }
       return newGraph;
+   }
+
+   public static String readQueue(QueueInterface queue)
+   {
+      String result = "";
+      while(!queue.isEmpty())
+      {
+         result += queue.dequeue().toString();
+      }
+      return result;
    }
 }

@@ -13,11 +13,42 @@ public class MatrixGraph<T> implements GraphInterface<T>
       labels = (T[]) new Object[n]; // All values initially null
    } // end constructor
 
-   public QueueInterface<T> getDepthFirstTraversal (T origin)
+   public StackInterface<T> getBreadthFirstTraversal (int origin)
+   {
+      return null;
+   }
+
+   public QueueInterface<T> getDepthFirstTraversal (int origin)
    {
       QueueInterface<T> traversalOrder = new LinkedQueue<T>();
-      StackInterface<T> vertexStack = new LinkedStack<>();
-      
+      StackInterface<Integer> vertexStack = new LinkedStack<>();
+      BagInterface<Integer> visitedVertexes = new LinkedBag<>();
+
+      visitedVertexes.add(origin);
+      traversalOrder.enqueue(labels[origin]);
+      vertexStack.push(origin);
+
+      while(!vertexStack.isEmpty())
+      {
+         int topVertex = vertexStack.peek();
+         int[] currNeighbors = neighbors(topVertex);
+         int nextNeighbor = -1;
+         for(int vert : currNeighbors)
+         {
+            if(!visitedVertexes.contains(vert))
+            {
+               nextNeighbor = vert;
+               visitedVertexes.add(nextNeighbor);
+               traversalOrder.enqueue(labels[nextNeighbor]);
+               vertexStack.push(nextNeighbor);
+               break;
+            }
+         }
+         if(nextNeighbor == -1)
+         {
+            vertexStack.pop();
+         }
+      }
       return traversalOrder;
    }
 

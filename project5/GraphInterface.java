@@ -1,5 +1,8 @@
 package project5;
 
+import ADTPackage.QueueInterface;
+import ADTPackage.StackInterface;
+
 public interface GraphInterface<T>
 {
    // Accessor method to get the label of a vertex of this Graph
@@ -22,4 +25,10 @@ public interface GraphInterface<T>
    
    // Accessor method to determine the number of vertices in this Graph
    public int size();
+
+   // Returns a stack with the breadth-first traversal.
+   public StackInterface<T> getBreadthFirstTraversal(int origin);
+
+   // Returns a queue with the depth-first traversal.
+   public QueueInterface<T> getDepthFirstTraversal(int origin);
 }
