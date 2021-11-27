@@ -11,6 +11,10 @@ public class GraphTest
       System.out.println("Depth-first traversal: " + readQueue(DFT));
    }
 
+   /**
+    * Creates a specific graph as shown in the project prompt.
+    * @return A GraphInterface with the aforementioned graph.
+    */
    public static GraphInterface<String> createGraph1()
    {
       String[] labels = new String[]{"A", "B", "C",
@@ -32,6 +36,12 @@ public class GraphTest
       return newGraph;
    }
 
+   /**
+    * Takes the contents of a queue and puts them in a string.
+    * Note that this method changes the queue.
+    * @param queue The queue to read.
+    * @return A String containing the queue's contents.
+    */
    public static <T> String readQueue(QueueInterface<T> queue)
    {
       String result = "";
