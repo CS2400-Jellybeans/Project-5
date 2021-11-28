@@ -40,6 +40,7 @@ public class GraphTest
     * Takes the contents of a queue and puts them in a string.
     * Note that this method changes the queue.
     * @param queue The queue to read.
+    * @param <T> the type of data the queue contains.
     * @return A String containing the queue's contents.
     */
    public static <T> String readQueue(QueueInterface<T> queue)
