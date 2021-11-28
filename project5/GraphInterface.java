@@ -53,9 +53,17 @@ public interface GraphInterface<T>
     */
    public int size();
 
-   // Returns a stack with the breadth-first traversal.
+   /**
+    * Traverses a graph breadth-first.
+    * @param origin The index to start traversing from.
+    * @return A stack containing the order of the traversal.
+    */
    public StackInterface<T> getBreadthFirstTraversal(int origin);
 
-   // Returns a queue with the depth-first traversal.
+   /**
+    * Traverses a graph depth-first.
+    * @param origin The index to start traversing from.
+    * @return A queue containing the order of the traversal.
+    */
    public QueueInterface<T> getDepthFirstTraversal(int origin);
 }
