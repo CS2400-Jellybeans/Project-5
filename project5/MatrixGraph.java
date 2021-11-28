@@ -144,7 +144,7 @@ public class MatrixGraph<T> implements GraphInterface<T>
    }
    
    /**
-    * @return The current size of the graph.
+    * @return The number of vertices in this graph.
     */
    public int size()
    {
