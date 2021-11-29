@@ -20,7 +20,32 @@ public class MatrixGraph<T> implements GraphInterface<T>
     */
    public StackInterface<T> getBreadthFirstTraversal (int origin)
    {
-      return null;
+      QueueInterface<T> traversalOrder = new LinkedQueue<T>();
+      QueueInterface<T> vertexQueue = new LinkedQueue<T>();
+      BagInterface<Integer> visitedVertexes = new LinkedBag<>();
+
+      visitedVertexes.add(origin);
+      traversalOrder.enqueue(origin);
+      vertexQueue.enqueue(origin);
+
+      while(!vertexQueue.isEmpty()) {
+        frontVertex = vertexQueue.dequeue();
+
+        int[] currNeighbors = neighbors(topVertex);
+        while(currNeighbors.length > 0) {
+            int nextNeighbor = -1;
+            for(int vert : currNeighbors) {
+                nextNeighbor = vert;
+                if(!vertexQueue.contains(nextNeighbor)) {
+                    visitedVertexes.add(origin);
+                    traversalOrder.enqueue(nextNeighbor);
+                    vertexQueue.enque(nextNeighbor);
+                }
+            }
+        }
+
+      }
+      return traversalOrder;
    }
 
    /**
