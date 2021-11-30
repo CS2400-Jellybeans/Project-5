@@ -3,6 +3,7 @@ package JUnit;
 import org.junit.*;
 
 import ADTPackage.QueueInterface;
+import ADTPackage.StackInterface;
 import junit.framework.TestCase;
 import project5.GraphInterface;
 import project5.MatrixGraph;
@@ -38,6 +39,16 @@ public class GraphJUnit extends TestCase
       QueueInterface<String> queue = newGraph.getDepthFirstTraversal(3);
       
       String result = "";
+      while(!queue.isEmpty())
+      {
+         result += queue.dequeue().toString() + " ";
+      }
+      
+      assertEquals("D A B C ", result);
+      
+      //queue = newGraph.getBreadthFirstTraversal(3);
+      
+      result = "";
       while(!queue.isEmpty())
       {
          result += queue.dequeue().toString() + " ";

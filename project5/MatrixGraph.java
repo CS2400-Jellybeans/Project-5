@@ -1,5 +1,7 @@
 package project5;
 
+import java.util.Queue;
+
 import ADTPackage.*;
 
 public class MatrixGraph<T> implements GraphInterface<T>
@@ -18,32 +20,32 @@ public class MatrixGraph<T> implements GraphInterface<T>
     * @param origin The index to start traversing from.
     * @return A stack containing the order of the traversal.
     */
-   public StackInterface<T> getBreadthFirstTraversal (int origin)
+   public QueueInterface<T> getBreadthFirstTraversal (int origin)
    {
       QueueInterface<T> traversalOrder = new LinkedQueue<T>();
-      QueueInterface<T> vertexQueue = new LinkedQueue<T>();
+      QueueInterface<Integer> vertexQueue = new LinkedQueue<Integer>();
       BagInterface<Integer> visitedVertexes = new LinkedBag<>();
 
       visitedVertexes.add(origin);
-      traversalOrder.enqueue(origin);
+      traversalOrder.enqueue(labels[origin]);
       vertexQueue.enqueue(origin);
 
-      while(!vertexQueue.isEmpty()) {
-        frontVertex = vertexQueue.dequeue();
+      while(!vertexQueue.isEmpty())
+      {
+         int frontVertex = vertexQueue.dequeue();
 
-        int[] currNeighbors = neighbors(topVertex);
-        while(currNeighbors.length > 0) {
-            int nextNeighbor = -1;
-            for(int vert : currNeighbors) {
-                nextNeighbor = vert;
-                if(!vertexQueue.contains(nextNeighbor)) {
-                    visitedVertexes.add(origin);
-                    traversalOrder.enqueue(nextNeighbor);
-                    vertexQueue.enque(nextNeighbor);
-                }
+         int[] currNeighbors = neighbors(frontVertex);
+         int nextNeighbor = -1;
+         for(int vert : currNeighbors)
+         {
+            nextNeighbor = vert;
+            if(!visitedVertexes.contains(nextNeighbor))
+            {
+               visitedVertexes.add(nextNeighbor);
+               traversalOrder.enqueue(labels[nextNeighbor]);
+               vertexQueue.enqueue(nextNeighbor);
             }
-        }
-
+         }
       }
       return traversalOrder;
    }

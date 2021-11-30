@@ -9,6 +9,8 @@ public class GraphTest
       GraphInterface<String> graph1 = createGraph1();
       QueueInterface<String> DFT = graph1.getDepthFirstTraversal(0);
       System.out.println("Depth-first traversal: " + readQueue(DFT));
+      QueueInterface<String> BFT = graph1.getBreadthFirstTraversal(0);
+      System.out.println("Breadth-first traversal: " + readQueue(BFT));
    }
 
    /**
