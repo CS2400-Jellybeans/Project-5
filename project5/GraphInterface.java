@@ -1,7 +1,6 @@
 package project5;
 
 import ADTPackage.QueueInterface;
-import ADTPackage.StackInterface;
 
 public interface GraphInterface<T>
 {

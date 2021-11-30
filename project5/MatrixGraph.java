@@ -1,7 +1,5 @@
 package project5;
 
-import java.util.Queue;
-
 import ADTPackage.*;
 
 public class MatrixGraph<T> implements GraphInterface<T>
@@ -22,6 +20,12 @@ public class MatrixGraph<T> implements GraphInterface<T>
     */
    public QueueInterface<T> getBreadthFirstTraversal (int origin)
    {
+      if(origin >= labels.length)
+      {
+         throw new IllegalStateException("Attempted to traverse a graph using a starting point "
+                                         + "greater than the graph's size of " + labels.length);
+      }
+      
       QueueInterface<T> traversalOrder = new LinkedQueue<T>();
       QueueInterface<Integer> vertexQueue = new LinkedQueue<Integer>();
       BagInterface<Integer> visitedVertexes = new LinkedBag<>();
