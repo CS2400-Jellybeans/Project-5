@@ -3,7 +3,6 @@
 ##### Jana Georgievski (pesimelaki1)
 + Wrote breadth-first traversal method
 + Wrote part of driver program
-+ Edited video
 ##### Joshua Lai (OrbinWaffle)
 + Wrote GraphInterface and MatrixGraph
 + Wrote depth-first traversal method
